@@ -4,11 +4,10 @@
     <el-container>
       <el-header>
         <MyHeader></MyHeader>
-        <router-link to="/ComprehensiveSituation">to</router-link>
+        <!-- <router-link to="/ComprehensiveSituation">to</router-link> -->
       </el-header>
       <el-main>
         <router-view />
-
       </el-main>
     </el-container>
   </div>

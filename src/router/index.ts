@@ -1,20 +1,42 @@
 
 // import operationRouter from './operation'
 
-import { createRouter, createWebHashHistory } from 'vue-router'
-import layout from '../layout/index.vue'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+// import layout from '../layout/index.vue'
 
 
-const routes = [
+const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    component:layout
-    // component: ()=>import('./test.vue')
+    component: ()=>import('../layout/index.vue'),
+    children:[
+      {
+        path: 'ComprehensiveSituation',
+        component: () => import('../views/ComprehensiveSituation/index.vue')
+      },
+      {
+        path: 'device',
+        component: () => import('../views/device/index.vue')
+      },
+      {
+        path: 'alert',
+        component: () => import('../views/alert/index.vue')
+      },
+      {
+        path: 'Patrol',
+        component: () => import('../views/Patrol/index.vue')
+      },
+      {
+        path: 'hiddeDanger',
+        component: () => import('../views/hiddeDanger/index.vue')
+      },
+      {
+        path: 'set',
+        component: () => import('../views/set/index.vue')
+      },
+    ]
   },
-  {
-    path:'/ComprehensiveSituation',
-      component: ()=>import('../views/ComprehensiveSituation/index.vue')
-  }
+
 
 
 
