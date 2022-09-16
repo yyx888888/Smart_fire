@@ -1,0 +1,11 @@
+<template>
+  <h1>巡检管理</h1>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="scss" scoped>
+
+</style>
