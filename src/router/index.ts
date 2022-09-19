@@ -15,8 +15,21 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('../views/ComprehensiveSituation/index.vue')
       },
       {
-        path: 'device',
-        component: () => import('../views/device/index.vue')
+        path: '/device',
+        name: 'Device',
+        component: () => import('../views/device/Device.vue'),
+        children:[
+          {
+            path: '/fireSystem',
+            name: 'FireSystem',
+            component: () => import('../views/device/FireSystem.vue')
+          },
+          {
+            path: '/waterSystem',
+            name: 'WaterSystem',
+            component: () => import('../views/device/WaterSystem.vue')
+          },
+        ]
       },
       {
         path: 'alert',
