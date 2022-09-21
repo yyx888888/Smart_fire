@@ -1,5 +1,5 @@
 <template>
-  <el-row class="nav" >
+  <el-row class="nav">
     <el-col :span="6" class="logo">
       <span style="border: 1px solid #fff; font-weight: bold; padding: 3px;">LOGO</span>
       <span class="title">
@@ -35,7 +35,7 @@ const navData = reactive([
   { id: 1, name: "综合态势", path: "ComprehensiveSituation" },
   { id: 2, name: "设备管理", path: "device" },
   { id: 3, name: "告警管理", path: "alert" },
-  { id: 4, name: "巡检管理", path: "Patrol" },
+  { id: 4, name: "巡检管理", path: "patrol" },
   { id: 5, name: "隐患管理", path: "hiddeDanger" },
   { id: 6, name: "系统设置", path: "set" },
 ]);

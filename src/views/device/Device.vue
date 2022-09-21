@@ -6,7 +6,6 @@
     <div class="content">
       <router-view></router-view>
     </div>
-
   </div>
 </template>
 
@@ -23,15 +22,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1{
+h1 {
   text-align: center;
 }
-.leftMenu{
+
+.leftMenu {
   width: 15%;
   float: left;
   text-align: center;
 }
-.content{
+
+.content {
   width: 85%;
   float: left;
 }
