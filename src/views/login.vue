@@ -33,7 +33,10 @@ import { TypeLoginParam } from "../type/userApi";
 import { reactive, ref, } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useStore, } from "vuex";
+
 const router = useRouter()
+const store = useStore()
 
 
 // 表单dom
@@ -56,20 +59,17 @@ const submitForm = (formEl: FormInstance | undefined) => {
     // 验证通过
     if (valid) {
       try {
-        // 发送后台的参数
-        const params = new URLSearchParams()
-        params.append('username', formInline.j_username)
-        params.append('pwd', formInline.j_password)
-        axios({
-          method: 'post',
-          url: 'http://127.0.0.1:8001/login',
-          data: params,
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        }).then((res) => {
-          console.log('后台返回的结果', res);
-          if (res.data === '登录成功') {
+        // // 发送后台的参数
+        // const params = new URLSearchParams()
+        // params.append('username', formInline.j_username)
+        // params.append('pwd', formInline.j_password)
+        const params = {
+          username: formInline.j_username,
+          pwd: formInline.j_password,
+        }
+        // 验证登录
+        store.dispatch('login/checkLogin', params).then(res => {
+          if (res === true) {
             router.push('/index')
             // @ts-ignore
             ElNotification({
@@ -87,7 +87,35 @@ const submitForm = (formEl: FormInstance | undefined) => {
               duration: 3000,
             })
           }
-        })
+        });
+        // axios({
+        //   method: 'post',
+        //   url: 'http://127.0.0.1:8001/login',
+        //   data: params,
+        //   headers: {
+        //     'Content-Type': 'application/x-www-form-urlencoded'
+        //   }
+        // }).then((res) => {
+        //   console.log('后台返回的结果', res);
+        //   if (res.data === '登录成功') {
+        //     router.push('/index')
+        //     // @ts-ignore
+        //     ElNotification({
+        //       message: '登录成功',
+        //       type: 'success',
+        //       title: "欢迎",
+        //       duration: 3000,
+        //     })
+        //   } else {
+        //     // @ts-ignore
+        //     ElNotification({
+        //       message: '账号或密码错误',
+        //       type: 'error',
+        //       title: "登录失败",
+        //       duration: 3000,
+        //     })
+        //   }
+        // })
       } catch (e) {
         console.log(e)
       }
