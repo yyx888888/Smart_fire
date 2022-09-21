@@ -33,8 +33,6 @@ h1{
 }
 .content{
   width: 85%;
-  /*padding: 30px;*/
   float: left;
-  outline: 1px solid pink;
 }
 </style>

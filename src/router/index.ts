@@ -2,14 +2,19 @@
 // import operationRouter from './operation'
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-// import layout from '../layout/index.vue'
+import layout from '../layout/index.vue'
+import login from '../views/login.vue'
 
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    component: ()=>import('../layout/index.vue'),
+    component:layout,
     children:[
+      {
+        path: '/login',
+        component:login
+      },
       {
         path: 'ComprehensiveSituation',
         component: () => import('../views/ComprehensiveSituation/index.vue')
@@ -17,6 +22,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/device',
         name: 'Device',
+        redirect: '/fireSystem',
         component: () => import('../views/device/Device.vue'),
         children:[
           {

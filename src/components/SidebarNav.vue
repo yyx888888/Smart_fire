@@ -1,6 +1,6 @@
 <template>
   <el-menu
-      background-color="#545c64"
+      background-color="#36393EFF"
       class="el-menu-vertical-demo"
       :default-active="activeIndex"
       text-color="#fff"
@@ -18,7 +18,6 @@
 
 <script lang="ts">
 import {defineComponent, onMounted,ref} from 'vue';
-import {Document, Location} from '@element-plus/icons-vue'
 import {useRouter} from "vue-router";
 import {useStore} from "vuex";
 
@@ -47,7 +46,7 @@ export default defineComponent({
 <style scoped>
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 100%;
-  height: 100vh;
+  height: 200vh;
 }
 .el-menu-item.is-active {
   background-color: #3a5574 !important;
