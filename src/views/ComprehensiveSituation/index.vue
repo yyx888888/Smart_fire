@@ -151,7 +151,10 @@
         </div>
        </el-container>
     </div>
+
   </div>
+
+
 </template>
 
 <script>
@@ -159,6 +162,7 @@
   export default{
     mounted(){
       // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~右1~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // @ts-ignore
   let rightTop=echarts.init(this.$refs.rightTop);
   let r1 = {
     title: {
@@ -226,7 +230,14 @@
       name: '故障',
       type: 'line',
       stack: 'Total',
-      areaStyle: {},
+      lineStyle:{
+        color:'#80f4f5'
+      },
+      areaStyle: {
+                  normal: {
+                      color: '#828d92'
+                  },
+      }, 
       emphasis: {
         focus: 'series'
       },
@@ -236,7 +247,14 @@
       name: '火警',
       type: 'line',
       stack: 'Total',
-      areaStyle: {},
+      lineStyle:{
+        color:'#d46162'
+      },
+      areaStyle: {
+                  normal: {
+                      color: '#82666d'
+                  },
+      }, 
       emphasis: {
         focus: 'series'
       },
@@ -246,7 +264,14 @@
       name: '告警',
       type: 'line',
       stack: 'Total',
-      areaStyle: {},
+      lineStyle:{
+        color:'#bd8e49'
+      },
+      areaStyle: {
+                  normal: {
+                      color: '#636871'
+                  },
+      }, 
       emphasis: {
         focus: 'series'
       },
@@ -258,6 +283,7 @@
     rightTop.setOption(r1)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~右一结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~右二开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
   let rightMiddle=echarts.init(this.$refs.rightMiddle);
   let r2 = {
   title: {
@@ -317,6 +343,9 @@
       name: '隐患数',
       type: 'line',
       stack: 'Total',
+      lineStyle:{
+        color:'#0bd3de'
+      },
       data: [3, 3, 6, 6, 4, 5, 6]
     },
 
@@ -325,6 +354,7 @@
  rightMiddle.setOption(r2)
  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~右二结束~~~~~~~~~~~~~~~~~~~~~~~~
  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~右三开始~~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
  let rightBottom=echarts.init(this.$refs.rightBottom);
  let r3= {
   title: {
@@ -405,6 +435,9 @@
     {
       name: '工单数',
       type: 'bar',
+      itemStyle:{
+         color:'#17eecb'
+      },
       tooltip: {
         valueFormatter: function (value) {
           return value + ' 单';
@@ -419,6 +452,9 @@
       name: '及时率',
       type: 'line',
       yAxisIndex: 1,
+      lineStyle:{
+        color:'#8be20f'
+      },
       tooltip: {
         valueFormatter: function (value) {
           return value + ' %';
@@ -429,7 +465,8 @@
   ]
 };
  rightBottom.setOption(r3)
- //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左一~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ //~~~~~~~~~~~~~~~~~~~~~~~~左一~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore 注释ts错误
  let leftE1=echarts.init(this.$refs.leftE1);
  let L1 = {
     title: {
@@ -470,8 +507,9 @@
   ]
 };
 leftE1.setOption(L1)
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左一结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左二开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左一结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左二开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ // @ts-ignore
 let leftE2=echarts.init(this.$refs.leftE2);
  let L2 = {
     title: {
@@ -512,8 +550,9 @@ let leftE2=echarts.init(this.$refs.leftE2);
   ]
 };
 leftE2.setOption(L2)
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左二结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左三开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~左二结束~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~左三开始~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
 let leftE3=echarts.init(this.$refs.leftE3);
  let L3 = {
     title: {
@@ -554,8 +593,9 @@ let leftE3=echarts.init(this.$refs.leftE3);
   ]
 };
 leftE3.setOption(L3)
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左三结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左四开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左三结束~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左四开始~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
 let leftE4=echarts.init(this.$refs.leftE4);
  let L4 = {
     title: {
@@ -598,6 +638,7 @@ let leftE4=echarts.init(this.$refs.leftE4);
 leftE4.setOption(L4)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左四结束~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左五开始~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
 let leftE5=echarts.init(this.$refs.leftE5);
 let L5 = {
     title: {
@@ -663,6 +704,7 @@ let L5 = {
 leftE5.setOption(L5)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左五结束~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左六开始~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
 let leftE6=echarts.init(this.$refs.leftE6);
 let L6 = {
     title: {
@@ -728,6 +770,7 @@ let L6 = {
 leftE6.setOption(L6)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左六结束~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~左七开始~~~~~~~~~~~~~~~~~~~~~~~
+  // @ts-ignore
 let leftE7=echarts.init(this.$refs.leftE7);
 let L7 = {
     title: {
@@ -797,22 +840,31 @@ leftE7.setOption(L7)
 </script>
 
 <style scoped>
+
   .large{
     width: 100%;
-    height: 700px;
+    min-height:700px;
     background-color: #082c61;
     background-image: url(../../assets/u0.png);
     background-repeat: no-repeat;
     background-position-x:center;
     background-position-y:center;
-    background-size: 60%;
-    padding: 15px;
+    background-size: 60% 57%;
+    position: relative;
+  }
+  .imageBack{
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 100%;
+    width: 60%;
+    position: relative;
   }
   .imageBack img{
-    width: 1100px;
-    height: 700px;
-    position: absolute;
-    left: 200px;
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    /* position: absolute;
+    left: 200px; */
   }
   /* 走马灯设置 */
   .demonstration {
@@ -826,10 +878,13 @@ leftE7.setOption(L7)
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #294776
 }
+/* 右方echarts大容器设置 */
 .rightEchart{
   position: absolute;
   right: 15px;
+  top: 15px;
 }
+/*右侧上方echarts容器*/
 #rightTop{
   width: 350px;
   height: 200px;
@@ -837,6 +892,7 @@ leftE7.setOption(L7)
   border: 1px solid #1475eb;
 
 }
+/*右侧中部echarts容器*/
 #rightMiddle{
   margin-top:15px;
   width: 350px;
@@ -844,6 +900,7 @@ leftE7.setOption(L7)
   background-color: #294776 ;
   border: 1px solid #1475eb;
 }
+/*右侧下方echarts容器*/
 #rightBottom{
   margin-top:15px;
   width: 350px;
@@ -851,15 +908,18 @@ leftE7.setOption(L7)
   background-color: #294776 ;
   border: 1px solid #1475eb;
 }
+/*页面中上两个图标容器*/
 .middleTop{
   position: absolute;
-  left: 514px;
-  top: 105px;
+  width: 30%;
+  left: 35%;
+  right: 35%;
+  top: 5%;
   width: 500px;
   height: 300px;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .middleTop span{
   color:white;
@@ -888,10 +948,13 @@ leftE7.setOption(L7)
   left: 70px;
   font-size: 12px;
 }
+/*左侧echarts大容器设置*/
 .leftEchart{
   position: absolute;
   left: 15px;
+  top: 15px;
 }
+/*左侧上方echarts容器设置*/
 .leftTop{
   width:350px;
   height: 200px;
@@ -965,6 +1028,7 @@ leftE7.setOption(L7)
   margin-top: 10px;
   margin-bottom: 5px;
 }
+/*左侧中部echarts容器设置*/
 .leftMiddle{
   width:350px;
   height: 200px;
@@ -972,6 +1036,7 @@ leftE7.setOption(L7)
   margin-top:15px;
   border: 1px solid #1475eb;
 }
+/*左侧下方echarts容器设置*/
 .leftBottom{
   width:350px;
   height: 200px;
@@ -1006,5 +1071,9 @@ leftE7.setOption(L7)
 #leftE7{
   width:350px;
   height: 150px;
+}
+.strut{
+  width: 100%;
+  height: 100%;
 }
 </style>

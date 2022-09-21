@@ -1,5 +1,5 @@
 <template>
-  <el-row class="nav">
+  <el-row class="nav" >
     <el-col :span="6" class="logo">
       <span style="border: 1px solid #fff; font-weight: bold; padding: 3px;">LOGO</span>
       <span class="title">
@@ -48,7 +48,7 @@ const selected = (index: any) => {
 </script>
 <style  lang="less" scoped>
 .nav {
-  border: 1px solid #000;
+  // border: 1px solid #000;
   border-bottom: none;
   background-color: rgba(40, 44, 52, 1);
   color: white;
