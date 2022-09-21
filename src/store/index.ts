@@ -479,6 +479,374 @@ export default createStore({
           camera:'IPC1001'
         }
       ]
+    },
+    patrol:{
+      plan:[
+        {
+          num: '1',
+          name: '安防巡更01',
+          type: {
+          times:'每天4次',
+          times1:'天',
+          times2:'4次'
+          },
+          position: {
+            part:'综合办公楼',
+            floor:'G1'
+          },
+          staff:'test01',
+          rate:'0.00%',
+          start:'2022/6/30',
+          end:'2022/7/30',
+          state:'未开始',
+          desc:''
+        },
+        {
+          num: '2',
+          name: '安防巡更02',
+          type: {
+          times:'每天4次',
+          times1:'天',
+          times2:'4次'
+          },
+          position: {
+            part:'综合办公楼',
+            floor:'G1'
+          },
+          staff:'test01',
+          rate:'90.40%',
+          start:'2021/12/25',
+          end:'2022/12/25',
+          state:'执行中',
+          desc:''
+        },
+        {
+          num: '3',
+          name: '设备常规巡检03',
+          type: {
+          times:'每周1次',
+          times1:'周',
+          times2:'1次'
+          },
+          position: {
+            part:'产线厂房',
+            floor:'G1'
+          },
+          staff:'test01',
+          rate:'96.50%',
+          start:'2021/12/25',
+          end:'2021/12/25',
+          state:'执行中',
+          desc:''
+        },
+        {
+          num: '4',
+          name: '视频巡更04',
+          type: {
+          times:'每小时1次',
+          times1:'时',
+          times2:'1次'
+          },
+          position: {
+            part:'仓储楼',
+            floor:'G1'
+          },
+          staff:'test02',
+          rate:'95.50%',
+          start:'2021/12/25',
+          end:'2022/12/25',
+          state:'执行中',
+          desc:''
+        },
+        {
+          num: '5',
+          name: '设备常规巡检05',
+          type: {
+          times:'每周1次',
+          times1:'周',
+          times2:'1次'
+          },
+          position: {
+            part:'产线厂房',
+            floor:'G1'
+          },
+          staff:'test02',
+          rate:'86.70%',
+          start:'2021/9/25',
+          end:'2022/9/25',
+          state:'执行中',
+          desc:''
+        },
+        {
+          num: '6',
+          name: '设备常规巡检06',
+          type: {
+          times:'每周1次',
+          times1:'周',
+          times2:'1次'
+          },
+          position: {
+            part:'产线厂房',
+            floor:'G1'
+          },
+          staff:'test02',
+          rate:'0.00%',
+          start:'2021/9/25',
+          end:'2022/9/25',
+          state:'执行中',
+          desc:''
+        },
+        {
+          num: '7',
+          name: '设备常规巡检07',
+          type: {
+          times:'每月1次',
+          times1:'月',
+          times2:'1次'
+          },
+          position: {
+            part:'产线厂房',
+            floor:'G1'
+          },
+          staff:'test03',
+          rate:'98.50%',
+          start:'2021/6/30',
+          end:'2021/12/30',
+          state:'已结束',
+          desc:''
+        },
+        {
+          num: '8',
+          name: '活动巡更08',
+          type: {
+          times:'每小时1次',
+          times1:'时',
+          times2:'1次'
+          },
+          position: {
+            part:'仓储楼',
+            floor:'G1'
+          },
+          staff:'test03',
+          rate:'100.00%',
+          start:'2021/6/20',
+          end:'2021/6/25',
+          state:'已结束',
+          desc:''
+        }    
+      ],
+      task: [
+        {
+          num: '1',
+          name: '安防巡更01',
+          type:{
+          times:'每天',
+          times1:'天',
+          times2:'1次'
+        },
+          staff:'test01',
+          rate:'0.00%',
+          effectiveTime:{
+            time:'2022/6/30-2022/6/30',
+            start:'2022/6/30',
+            end:'2022/6/30',
+          },
+          completeionTime:'执行中',
+          state:'执行中',
+        },
+        {
+          num: '2',
+          name: '安防巡更02',
+          type:{
+          times:'每天',
+          times1:'天',
+          times2:'1次'
+        },
+          staff:'test01',
+          rate:'100.00%',
+          effectiveTime:{
+            time:'2022/6/30-2022/6/30',
+            start:'2022/6/30',
+            end:'2022/6/30',
+          },
+          completeionTime:'2022/6/30',
+          state:'已完成',
+        },
+        {
+          num: '3',
+          name: '设备常规巡检03',
+          type:{
+          times:'每天',
+          times1:'天',
+          times2:'1次'
+        },
+          staff:'test01',
+          rate:'0.00%',
+          effectiveTime:{
+            time:'2022/6/30-2022/6/30',
+            start:'2022/6/30',
+            end:'2022/6/30',
+          },
+          completeionTime:'未完成',
+          state:'未完成',
+        },
+        {
+          num: '4',
+          name: '视频巡更04',
+          type:{
+          times:'每小时',
+          times1:'时',
+          times2:'1次'
+        },
+          staff:'test02',
+          rate:'90.00%',
+          effectiveTime:{
+            time:'2022/6/26-2022/6/26',
+            start:'2022/6/26',
+            end:'2022/6/26',
+          },
+          completeionTime:'2022/6/27',
+          state:'已完成',
+        },
+        {
+          num: '5',
+          name: '活动巡更05',
+          type:{
+          times:'每小时',
+          times1:'时',
+          times2:'1次'
+        },
+          staff:'test02',
+          rate:'90.00%',
+          effectiveTime:{
+            time:'2022/6/26-2022/6/26',
+            start:'2022/6/26',
+            end:'2022/6/26',
+          },
+          completeionTime:'2022/6/27',
+          state:'已完成',
+        },
+        {
+          num: '6',
+          name: '设备常规巡检06',
+          type:{
+          times:'每周',
+          times1:'周',
+          times2:'1次'
+        },
+          staff:'test02',
+          rate:'0.00%',
+          effectiveTime:{
+            time:'2022/6/21-2022/6/25',
+            start:'2022/6/21',
+            end:'2022/6/25',
+          },
+          completeionTime:'未完成',
+          state:'未完成',
+        },
+        {
+          num: '7',
+          name: '设备功能巡检07',
+          type:{
+          times:'每周',
+          times1:'周',
+          times2:'1次'
+        },
+          staff:'test03',
+          rate:'98.50%',
+          effectiveTime:{
+            time:'2022/6/21-2022/6/25',
+            start:'2022/6/21',
+            end:'2022/6/25',
+          },
+          completeionTime:'2022/6/25',
+          state:'已完成',
+        },
+        {
+          num: '8',
+          name: '设备功能巡检08',
+          type:{
+          times:'每周',
+          times1:'周',
+          times2:'1次'
+        },
+          staff:'test03',
+          rate:'100.00%',
+          effectiveTime:{
+            time:'2022/6/21-2022/6/25',
+            start:'2022/6/21',
+            end:'2022/6/25',
+          },
+          completeionTime:'2022/6/25',
+          state:'已完成'
+        },
+        {
+          num: '9',
+          name: '安防巡更09',
+          type:{
+          times:'每天',
+          times1:'天',
+          times2:'1次'
+        },
+          staff:'test03',
+          rate:'100.00%',
+          effectiveTime:{
+            time:'2022/6/24-2022/6/24',
+            start:'2022/6/24',
+            end:'2022/6/24',
+          },
+          completeionTime:'2022/6/24',
+          state:'已完成',
+        },
+        {
+          num: '10',
+          name: '安防巡更10',
+          type:{
+          times:'每天',
+          times1:'天',
+          times2:'1次'
+        },
+          staff:'test03',
+          rate:'100.00%',
+          effectiveTime:{
+            time:'2022/6/24-2022/6/24',
+            start:'2022/6/24',
+            end:'2022/6/24',
+          },
+          completeionTime:'2022/6/24',
+          state:'已完成',
+        }
+      ],
+    }
+  },
+  getters:{
+    getAllTask(state){
+      return state.patrol.task
+    },
+    getAllPlan(state){
+      return state.patrol.plan
+    },
+  },
+  mutations:{
+    addPlan(state,data){
+      state.patrol.plan.push(data)
+    },
+    delPlan(state,i){
+      state.patrol.plan.splice(i,1)
+    },
+    delTask(state,i){
+      state.patrol.task.splice(i,1)
+    }
+  },
+  actions:{
+    addNewPlan({commit},data){
+      commit('addPlan',data)
+    },
+    delCurrentPlan({commit},i){
+      commit('delPlan',i)
+    },
+    delCurrentTask({commit},i){
+      commit('delTask',i)
     }
   },
   // 模块引入
