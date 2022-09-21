@@ -1,5 +1,5 @@
 <template>
-  <el-row class="nav" :gutter="20">
+  <el-row class="nav">
     <el-col :span="6" class="logo">
       <span style="border: 1px solid #fff; font-weight: bold; padding: 3px;">LOGO</span>
       <span class="title">
