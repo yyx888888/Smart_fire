@@ -9,16 +9,19 @@ import login from '../views/login.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '/login',
+    component:login,
+  },
+  {
+    path: '/index',
     component:layout,
     redirect:'/ComprehensiveSituation',
-
     children:[
       {
-        path: '/login',
-        component:login
-      },
-      {
-        path: 'ComprehensiveSituation',
+        path: '/ComprehensiveSituation',
         component: () => import('../views/ComprehensiveSituation/index.vue')
       },
       {
@@ -40,26 +43,36 @@ const routes: Array<RouteRecordRaw> = [
         ]
       },
       {
-        path: 'alert',
-        component: () => import('../views/alert/index.vue')
+        path: '/alert',
+        redirect: '/details',
+        component: () => import('../views/alert/index.vue'),
+        children:[
+          //文章管理
+          {
+             path: '/details',
+             component: () => import('../views/alert/details.vue')
+          },
+          {
+            path: '/detailspages',
+            component: () => import('../views/alert/detailspages.vue')
+         },
+       ]
       },
       {
-        path: 'Patrol',
+        path: '/Patrol',
         component: () => import('../views/Patrol/index.vue')
       },
       {
-        path: 'hiddeDanger',
+        path: '/hiddeDanger',
         component: () => import('../views/hiddeDanger/index.vue')
       },
       {
-        path: 'set',
+        path: '/set',
         component: () => import('../views/set/index.vue')
       },
     ]
   },
-
-
-
+   
 
 ]
 
