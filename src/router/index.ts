@@ -1,6 +1,6 @@
 
 // import operationRouter from './operation'
-
+  // @ts-ignore
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import layout from '../layout/index.vue'
 import login from '../views/login.vue'
@@ -10,6 +10,8 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     component:layout,
+    redirect:'/ComprehensiveSituation',
+
     children:[
       {
         path: '/login',
