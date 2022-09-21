@@ -30,6 +30,13 @@ export default defineConfig({
   server: {                
     host: true, // 监听所有地址
     open: true, //启动时自动在浏览器中打开
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5858/', //后端服务实际地址
+        changeOrigin: true, //开启代理
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
   resolve: {  // ****************** 路径配置新增
     alias     // ****************** 路径配置新增
