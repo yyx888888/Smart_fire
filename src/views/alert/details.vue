@@ -92,24 +92,17 @@
             show-overflow-tooltip
           />
           <el-table-column property="name" label="所属部门" width="160" />
-          <el-table-column property="name" label="安装位置" width="160" />
-          <el-table-column property="name" label="告警时间" width="160" />
-          <el-table-column property="name" label="是否复位" width="80" />
-          <el-table-column property="name" label="处理状态" width="80" />
-          <el-table-column property="name" label="操作" width="240">
-          
-          <!-- <el-link :underline="false"  style="width:40px"> -->
-            <router-link to="/detailspages">详情</router-link>
-            <router-link to="/detailspages">处理</router-link>
-            <router-link to="/detailspages">处理结果</router-link>
-            <router-link to="/detailspages">隐患上报</router-link>
-        <!-- </el-link> -->
-        <popoverVue/>
-          <!-- <el-link :underline="false" style="width:40px">处理</el-link> -->
-          <!-- <el-link :underline="false" style="width:80px">处理结果</el-link>
-          <el-link :underline="false" style="float: right">隐患上报</el-link> -->
-        
-        </el-table-column>
+          <el-table-column property="size" label="安装位置" width="160" />
+          <el-table-column property="time" label="告警时间" width="160" />
+          <el-table-column property="fuwei" label="是否复位" width="80" />
+          <el-table-column property="zhuangtai" label="处理状态" width="80" />
+          <el-table-column fixed="right" label="操作">
+              <template #default="scope">
+                <el-button link type="primary" size="small" @click="editDev(scope.row)">编辑</el-button>
+                <el-button link type="primary" size="small">详情</el-button>
+                <el-button link type="primary" size="small">配置</el-button>
+              </template>
+            </el-table-column>
         </el-table>
         <div style="padding: 20px">
           <el-button @click="toggleSelection()">Clear selection</el-button>
@@ -118,10 +111,12 @@
 </template>
 <script setup lang="ts">
     import { Search, RefreshRight, Files, Download } from "@element-plus/icons-vue";
-
-    import popoverVue from "../../components/alert/popover.vue";
+    import {useRouter} from "vue-router";
+    import { ElMessage ,ElMessageBox} from 'element-plus'
+    import {useStore} from "vuex";
     import { ElTable} from "element-plus";
     import { ref } from "vue";
+    const router=useRouter();
     const input = ref("");
     const input2 = ref("");
     const value = ref("");
@@ -130,24 +125,20 @@
     // 选择器
     const options = [
       {
-        value: "Option1",
-        label: "Option1",
+        value: "未处理",
+        label: "未处理",
       },
       {
-        value: "Option2",
-        label: "Option2",
+        value: "已提醒",
+        label: "已提醒",
       },
       {
-        value: "Option3",
-        label: "Option3",
+        value: "已处理",
+        label: "已处理",
       },
       {
-        value: "Option4",
-        label: "Option4",
-      },
-      {
-        value: "Option5",
-        label: "Option5",
+        value: "转工单",
+        label: "转工单",
       },
     ];
     
@@ -156,6 +147,11 @@
       date: string;
       name: string;
       address: string;
+      size:string;
+      time:string;
+      bumeng:string;
+      fuwei:string;
+      zhuangtai:string;
     }
     
     const multipleTableRef = ref<InstanceType<typeof ElTable>>();
@@ -178,41 +174,79 @@
     
     const tableData: User[] = [
       {
-        date: "2016-05-03",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "严重",
+        address: "浓度超上限告警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"综合办公楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-02",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "重要",
+        address: "浓度超上限告警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"仓储楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-04",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-0021063001",
+        name: "次要",
+        address: "温度超上限告警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"综合办公楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-01",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "重要",
+        address: "故障报警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"仓储楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-08",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "次要",
+        address: "温度超上限告警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"综合办公楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-06",
-        name: "Tom,jjjjjjj",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "重要",
+        address: "故障报警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"产线厂房",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
       {
-        date: "2016-05-07",
-        name: "Tom",
-        address: "No. 189, Grove St, Los Angeles",
+        date: "Dev-002021063001",
+        name: "次要",
+        address: "故障报警",
+        size: "综合楼A#5层103",
+        time: "2021/9/25 09:20:50",
+        bumeng:"综合办公楼",
+      fuwei:"否",
+      zhuangtai:"未处理",
       },
     ];
+    const editDev=(row:any)=>{
+      router.push({path:"/detailspages",query:{id:row.id}})
+    }
     </script>
     
     <style scoped>

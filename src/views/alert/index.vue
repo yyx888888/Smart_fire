@@ -42,27 +42,27 @@ const value = ref("");
 
 // 选择器
 const options = [
-  {
-    value: "Option1",
-    label: "Option1",
-  },
-  {
-    value: "Option2",
-    label: "Option2",
-  },
-  {
-    value: "Option3",
-    label: "Option3",
-  },
-  {
-    value: "Option4",
-    label: "Option4",
-  },
-  {
-    value: "Option5",
-    label: "Option5",
-  },
-];
+      {
+        value: "ABc综合体",
+        label: "ABc综合体",
+      },
+      {
+        value: "综合办公楼",
+        label: "综合办公楼",
+      },
+      {
+        value: "产线厂房",
+        label: "产线厂房",
+      },
+      {
+        value: "仓储楼",
+        label: "仓储楼",
+      },
+      {
+        value: "活动中心",
+        label: "活动中心",
+      },
+    ];
 </script>
 
 <style scoped>
