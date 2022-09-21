@@ -25,7 +25,20 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'alert',
-        component: () => import('../views/alert/index.vue')
+        redirect: '/details',
+        component: () => import('../views/alert/index.vue'),
+        children:[
+          //文章管理
+          {
+             path: '/details',
+             component: () => import('../views/alert/details.vue')
+          },
+          {
+            path: '/detailspages',
+            component: () => import('../views/alert/detailspages.vue')
+         },
+
+       ]
       },
       {
         path: 'Patrol',
