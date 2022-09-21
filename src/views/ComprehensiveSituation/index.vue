@@ -849,7 +849,7 @@ leftE7.setOption(L7)
     background-repeat: no-repeat;
     background-position-x:center;
     background-position-y:center;
-    background-size: 60% 59%;
+    background-size: 60% 57%;
     position: relative;
   }
   .imageBack{
