@@ -21,7 +21,7 @@
             </span>
             <span>
               <!-- <span class="weather">当前气温：{{weather.tem}}° {{weather.wea}}</span> -->
-              <span class="weather">当前气温：22° 多云</span>
+              <span class="weather">当前气温:22° 多云</span>
               <span class="time">{{ dataTime }} </span>
 
               <!-- <button @click="login">点击登录测试</button> -->

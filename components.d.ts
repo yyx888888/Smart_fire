@@ -7,18 +7,21 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-<<<<<<< HEAD
     ElAside: typeof import('element-plus/es')['ElAside']
-=======
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
->>>>>>> d11cc5aca75938eeffaa7ff49481f7454229249f
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
+    ElAside: typeof import('element-plus/es')['ElAside']
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
+    ElCol: typeof import('element-plus/es')['ElCol']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
     ElHeader: typeof import('element-plus/es')['ElHeader']
-    ElInput: typeof import('element-plus/es')['ElInput']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
