@@ -13,18 +13,18 @@ const http = axios.create({
     }
 })
 
-// 请求拦截器
-http.interceptors.request.use(
-    config => {
-      // 启动加载插件
-        NProgress.start();
-        return config
-    },
-    // 错误信息
-    function (error) {
-        return Promise.reject(error);
-    }
-)
+// // 请求拦截器
+// http.interceptors.request.use(
+//     config => {
+//       // 启动加载插件
+//         NProgress.start();
+//         return config
+//     },
+//     // 错误信息
+//     function (error) {
+//         return Promise.reject(error);
+//     }
+// )
 
 // // 响应拦截器
 // http.interceptors.response.use(
